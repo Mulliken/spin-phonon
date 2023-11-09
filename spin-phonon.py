@@ -7,9 +7,9 @@ omega_s = 0  # Spin energy
 omegas = [1]*3  # Oscillator 1 frequency
 gs = [0.]*3  # Coupling strength for oscillator 2
 # g_soc = 0.1
-g_ang_mom = [0.1]*3
-gammas = [0.5]*3 # Damping rate for oscillators
-N = 3         # Number of oscillator levels
+g_ang_mom = [1]*3
+gammas = [0.1]*3 # Damping rate for oscillators
+N = 4         # Number of oscillator levels
 
 
 # transformation matrix from phonons to coordinates
@@ -74,7 +74,7 @@ if oscillators:
     l_xyz = get_angular_momentum([a_1, a_2, a_3], trans_mat)
     ang_mom_state_y = l_xyz[1].eigenstates()[1][-1]
     ang_mom_state_x = l_xyz[0].eigenstates()[1][-1]
-    ang_mom_state_z = l_xyz[2].eigenstates()[1][1]
+    ang_mom_state_z = l_xyz[2].eigenstates()[1][-5]
     ang_mom_state = ang_mom_state_z.unit()
 
     a_ops = [tensor(qeye(2), qeye(2), op) for op in [a_1, a_2, a_3]]
